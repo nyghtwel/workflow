@@ -1,8 +1,12 @@
 /* Styles go here */
 body {
+<<<<<<< HEAD
     background: orange
 }
 
 .btn-info {
 	margin-right: 10px;
+=======
+  background: red;
+>>>>>>> added red background
 }
