@@ -15,7 +15,13 @@
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
   
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Item to add to todo list" ng-model="newItem">
+          <input type="text" class="form-control col-md-2" placeholder="Item to add to todo list" ng-model="newItem.text">
+          <span class="input-group-btn">
+          <select class="form-control" ng-model="newItem.prio">
+            <option value="">Priority</option>
+            <option ng-repeat="prio in priorities">{{prio}}</option>
+          </select>
+          </span>
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addItem()">
               Add
@@ -30,7 +36,8 @@
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
-          <span>{{do}}</span>
+          <span>{{do.text}}</span>
+          <span class="label label-default">{{do.prio}}</span>
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
