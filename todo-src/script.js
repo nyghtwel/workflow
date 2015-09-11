@@ -4,12 +4,14 @@ var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
   $scope.todos = ["Learn Angular", "Learn node"];
+  $scope.editable = [false, false]
   $scope.newItem = "";
   
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem !== ""){
       $scope.todos.push($scope.newItem);
+      $scope.editable.push(false);
       $scope.newItem = "";
     }
   }
@@ -20,7 +22,15 @@ myApp.controller('MainCtrl', function ($scope){
     $scope.todos.splice(index, 1);
   }
     
-  
+  $scope.editItem = function(item){
+    var index = $scope.todos.indexOf(item);
+    $scope.editable[index] = true;
+  }
+
+  $scope.saveItem = function(item){
+    var index = $scope.todos.indexOf(item);
+    $scope.editable[index] = false;
+  }
 });
 
 /*************************

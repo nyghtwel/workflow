@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
   </head>
@@ -30,14 +31,13 @@
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
-          <span>{{do}}</span>
+          <span ng-hide="editable[$index]">{{do}}</span>
+          <input type="text" style="width:50%" ng-model="editedItem" placeholder="{{do}}" ng-show="editable[$index]">
           <button class="btn btn-danger pull-right" type="button" ng-click="deleteItem(do)">
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
-          <button class="btn btn-info pull-right" type="button" ng-click="editItem(do)">
-            Edit
-          </button>
-
+          <button class="btn btn-info pull-right" type="button" ng-click="editItem(do)" ng-hide="editable[$index]">Edit</button>
+          <button class="btn btn-info pull-right" type="button" ng-click="saveItem(do)" ng-show="editable[$index]">Save</button>
         </li>
       </ul>
     </div>
