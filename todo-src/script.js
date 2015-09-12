@@ -21,15 +21,10 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
   }
-    
-  $scope.editItem = function(item){
-    var index = $scope.todos.indexOf(item);
-    $scope.editable[index] = true;
-  }
 
   $scope.saveItem = function(item){
-    var index = $scope.todos.indexOf(item);
-    $scope.editable[index] = false;
+    if($scope.todos[item] !== "")
+      $scope.editable[item] = false;
   }
 });
 
