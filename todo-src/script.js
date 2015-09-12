@@ -9,12 +9,16 @@ myApp.controller('MainCtrl', function ($scope){
     {"text":"Learn node", "prio": "Someday"}
   ];
   $scope.newItem = {};
+  $scope.todos = ["Learn Angular", "Learn node"];
+  $scope.newItem = "";
+  $scope.totalItems = 2;
   
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem.text){
       $scope.todos.push($scope.newItem);
       $scope.newItem = "";
+      $scope.totalItems += 1;
     }
   }
     
@@ -22,6 +26,7 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+    $scope.totalItems -= 1;
   }
     
   

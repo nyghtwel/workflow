@@ -13,6 +13,7 @@
     <h1 class="text-center">My little to do app!</h1>
     
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
+    <h4 ng-model="total"> Total to-do's: {{totalItems}} </h4>
   
         <div class="input-group">
           <input type="text" class="form-control col-md-2" placeholder="Item to add to todo list" ng-model="newItem.text">
@@ -31,8 +32,7 @@
         </div><!-- /input-group -->
         
       <h2>stuff i gotta do asap</h2>
-      
-      <ul class="list-group">
+        <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
           
@@ -45,7 +45,7 @@
         </li>
       </ul>
     </div>
-    
+
   </body>
 
 </html>
