@@ -2,3 +2,7 @@
 body {
     background: orange
 }
+
+.btn-info {
+	margin-right: 10px;
+}
