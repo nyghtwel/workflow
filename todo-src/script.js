@@ -10,6 +10,7 @@ myApp.controller('MainCtrl', function ($scope){
   ];
   $scope.newItem = {};
   $scope.editable = [false, false]
+  $scope.totalItems = 2;
   
   $scope.addItem = function(){
     console.log("in add");
@@ -17,6 +18,7 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.todos.push($scope.newItem);
       $scope.editable.push(false);
       $scope.newItem = "";
+      $scope.totalItems += 1;
     }
   }
     
@@ -24,6 +26,7 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+    $scope.totalItems -= 1;
   }
 
   $scope.saveItem = function(item){
