@@ -3,13 +3,13 @@
 var myApp = angular.module('app', []);
 
 myApp.controller('MainCtrl', function ($scope){
-  $scope.editable = [false, false];
-  $scope.priorities = ["Now", "Tomorrow", "Someday"];
+  $scope.priorities = ["Now", "Tomorrow", "Someday"]
   $scope.todos = [
     {"text":"Learn Angular", "prio":"Now"},
     {"text":"Learn node", "prio": "Someday"}
   ];
   $scope.newItem = {};
+  $scope.editable = [false, false]
   
   $scope.addItem = function(){
     console.log("in add");
@@ -27,7 +27,7 @@ myApp.controller('MainCtrl', function ($scope){
   }
 
   $scope.saveItem = function(item){
-    if($scope.todos[item] !== "")
+    if($scope.todos[item].text !== "")
       $scope.editable[item] = false;
   }
 });
