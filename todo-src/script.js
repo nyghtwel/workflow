@@ -27,7 +27,7 @@ myApp.controller('MainCtrl', function ($scope){
   }
 
   $scope.saveItem = function(item){
-    if($scope.todos[item] !== "")
+    if($scope.todos[item].text !== "")
       $scope.editable[item] = false;
   }
 });
