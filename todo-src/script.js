@@ -33,6 +33,14 @@ myApp.controller('MainCtrl', function ($scope){
     if($scope.todos[item].text !== "")
       $scope.editable[item] = false;
   }
+  
+  $scope.clear = function(){
+    console.log("in clear"); 
+    var temp = $scope.todos;                                         
+    $scope.todos = [];    
+    
+  }  
+  
 });
 
 /*************************
