@@ -5,8 +5,8 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
   $scope.priorities = ["Now", "Tomorrow", "Someday"]
   $scope.todos = [
-    {"text":"Learn Angular", "prio":"Now"},
-    {"text":"Learn node", "prio": "Someday"}
+    {"text":"Learn Angular", "prio":"Now", "done":true},
+    {"text":"Learn node", "prio": "Someday", "done":false}
   ];
   $scope.newItem = {};
   $scope.editable = [false, false]
@@ -36,9 +36,13 @@ myApp.controller('MainCtrl', function ($scope){
   
   $scope.clear = function(){
     console.log("in clear"); 
-    var temp = $scope.todos;                                         
-    $scope.todos = [];    
-    
+    var temp = [];   
+
+    for(var i in $scope.todos){
+      if($scope.todos[i].done === true) temp.push($scope.todos[i]); 
+    }                               
+    $scope.todos = temp;    
+
   }  
   
 });
