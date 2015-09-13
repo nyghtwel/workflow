@@ -11,7 +11,13 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.newItem = {};
   $scope.editable = [false, false]
   $scope.totalItems = 2;
-  
+
+  $scope.pressEnter = function(keyEvent) {
+    if (keyEvent.which === 13) {
+      $scope.addItem();
+    }
+  }
+
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem.text){
@@ -21,7 +27,7 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.totalItems += 1;
     }
   }
-    
+
   $scope.deleteItem = function(item){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
@@ -33,18 +39,18 @@ myApp.controller('MainCtrl', function ($scope){
     if($scope.todos[item].text !== "")
       $scope.editable[item] = false;
   }
-  
+
   $scope.clear = function(){
-    console.log("in clear"); 
-    var temp = [];   
+    console.log("in clear");
+    var temp = [];
 
     for(var i in $scope.todos){
-      if($scope.todos[i].done != true) temp.push($scope.todos[i]); 
-    }                               
-    $scope.todos = temp;    
+      if($scope.todos[i].done != true) temp.push($scope.todos[i]);
+    }
+    $scope.todos = temp;
 
-  }  
-  
+  }
+
 });
 
 /*************************
@@ -56,5 +62,5 @@ myApp.controller('MainCtrl', function ($scope){
  * - make it prettier
  * - add a due date
  * - add reminder (setInterval)
- * 
+ *
  * *********************/
