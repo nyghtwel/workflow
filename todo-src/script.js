@@ -39,7 +39,7 @@ myApp.controller('MainCtrl', function ($scope){
     var temp = [];   
 
     for(var i in $scope.todos){
-      if($scope.todos[i].done === true) temp.push($scope.todos[i]); 
+      if($scope.todos[i].done != true) temp.push($scope.todos[i]); 
     }                               
     $scope.todos = temp;    
 

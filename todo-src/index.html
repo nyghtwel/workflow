@@ -34,13 +34,17 @@
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
           </span>
+          
         </div><!-- /input-group -->
         
       <h2>stuff i gotta do asap</h2>
         <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
-          <span ng-hide="editable[$index]">{{do.text}}</span>
+          
+          <input type="checkbox" ng-model="do.done" />
+          <span ng-hide="editable[$index]" ng-class="{done: do.done}">{{do.text}}</span>
+          
           <span class="label label-default" ng-hide="editable[$index]">{{do.prio}}</span>
           <input type="text" style="width:50%" placeholder="{{do.text}}" ng-show="editable[$index]" ng-model="do.text">
           <select ng-show="editable[$index]" ng-model="do.prio" required>
