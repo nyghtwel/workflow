@@ -1,8 +1,16 @@
 /* Styles go here */
+
 body {
-	background: orange;
+	background-color: orange;
 }
 
+h4 {
+	margin: 20px;
+	text-align: center;
+}
+.btn-info {
+	margin-right: 10px;
+}
 .done {
 	text-decoration: line-through;
 }

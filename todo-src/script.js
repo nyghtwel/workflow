@@ -12,7 +12,6 @@ myApp.controller('MainCtrl', function ($scope){
   $scope.editable = [false, false]
   $scope.totalItems = 2;
   
-  
   $scope.addItem = function(){
     console.log("in add");
     if ($scope.newItem.text){
@@ -20,8 +19,6 @@ myApp.controller('MainCtrl', function ($scope){
       $scope.editable.push(false);
       $scope.newItem = "";
       $scope.totalItems += 1;
-
-
     }
   }
     
@@ -30,17 +27,12 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
     $scope.totalItems -= 1;
-
   }
 
   $scope.saveItem = function(item){
     if($scope.todos[item].text !== "")
       $scope.editable[item] = false;
   }
-
-
- 
-
 });
 
 /*************************
