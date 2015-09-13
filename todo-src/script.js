@@ -5,7 +5,7 @@ var myApp = angular.module('app', []);
 myApp.controller('MainCtrl', function ($scope){
   $scope.priorities = ["Now", "Tomorrow", "Someday"]
   $scope.todos = [
-    {"text":"Learn Angular", "prio":"Now"},
+    {"text":"Learn Angular", "prio":"Now", 'done':false},
     {"text":"Learn node", "prio": "Someday"}
   ];
   $scope.newItem = {};

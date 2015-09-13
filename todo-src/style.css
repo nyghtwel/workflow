@@ -11,3 +11,6 @@ h4 {
 .btn-info {
 	margin-right: 10px;
 }
+.done {
+	text-decoration: line-through;
+}
