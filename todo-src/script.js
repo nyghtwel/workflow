@@ -47,6 +47,7 @@ myApp.controller('MainCtrl', function ($scope){
     for(var i in $scope.todos){
       if($scope.todos[i].done != true) temp.push($scope.todos[i]);
     }
+    $scope.totalItems = temp.length;
     $scope.todos = temp;
 
   }
