@@ -11,17 +11,17 @@
 
   <body ng-app="app">
     <h1 class="text-center">My little to do app!</h1>
-    
+
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
     <h4 ng-model="total"> Total to-do's: {{totalItems}} </h4>
-        
+
         <span class="clear-group-btn" style="display: inline;">
             <button class="btn btn-default pull-left" type="button" ng-click="clear()">
-              Clear List
+              Clear Completed Items
             </button>
           </span>
         <div class="input-group">
-          <input type="text" class="form-control col-md-2" placeholder="Item to add to todo list" ng-model="newItem.text">
+          <input type="text" class="form-control col-md-2" placeholder="Item to add to todo list" ng-model="newItem.text" ng-keypress="pressEnter($event)">
           <span class="input-group-btn">
           <select class="form-control" ng-model="newItem.prio">
             <option value="">Priority</option>
@@ -34,17 +34,17 @@
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
           </span>
-          
+
         </div><!-- /input-group -->
-        
+
       <h2>stuff i gotta do asap</h2>
         <ul class="list-group">
         <!-- http://www.w3schools.com/css/css_float.asp -->
         <li class="list-group-item clearfix" ng-repeat="do in todos">
-          
+
           <input type="checkbox" ng-model="do.done" />
           <span ng-hide="editable[$index]" ng-class="{done: do.done}">{{do.text}}</span>
-          
+
           <span class="label label-default" ng-hide="editable[$index]">{{do.prio}}</span>
           <input type="text" style="width:50%" placeholder="{{do.text}}" ng-show="editable[$index]" ng-model="do.text">
           <select ng-show="editable[$index]" ng-model="do.prio" required>
