@@ -15,21 +15,16 @@
     <div id="todo" class="col-xs-6 col-xs-offset-3" ng-controller="MainCtrl">
     <h4 ng-model="total"> Total to-do's: {{totalItems}} </h4>
 
-        <span class="clear-group-btn" style="display: inline;">
-            <button class="btn btn-default pull-left" type="button" ng-click="clear()">
-              Clear Completed Items
-            </button>
-          </span>
         <div class="input-group">
           <input type="text" class="form-control col-md-2" placeholder="Item to add to todo list" ng-model="newItem.text" ng-keypress="pressEnter($event)">
           <span class="input-group-btn">
-          <select class="form-control" ng-model="newItem.prio">
+          <select class="form-control" ng-model="newItem.prio" style="width: 125px">
             <option value="">Priority</option>
             <option ng-repeat="prio in priorities">{{prio}}</option>
           </select>
           </span>
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-click="addItem()">
+            <button class="btn btn-primary" type="button" ng-click="addItem()">
               Add
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
             </button>
@@ -57,7 +52,11 @@
           <button class="btn btn-info pull-right" type="button" ng-click="saveItem($index)" ng-show="editable[$index]">Save</button>
         </li>
       </ul>
+	  <button class="btn btn-danger" type="button" ng-click="clear()">
+		Clear Completed Items
+	  </button>
     </div>
+
 
   </body>
 
